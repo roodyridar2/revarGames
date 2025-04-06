@@ -1,3 +1,97 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Additional styles for Framer Motion compatibility */
+
+/* Add these to your global CSS file */
+
+/* Preserve 3D transform style for card flipping */
+.preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  /* Hide backface of cards */
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Tailwind doesn't have built-in support for these 3D properties */
+  
+  /* Optional: Disable text selection on cards to prevent accidental selection during gameplay */
+  .card-container * {
+    user-select: none;
+  }
+  
+  /* Optional: Custom animations that might be reused */
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .animate-bounce-in {
+    animation: bounce-in 0.5s;
+  }
+  
+  @keyframes pulse-match {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+    }
+    50% {
+      box-shadow: 0 0 15px 5px rgba(124, 58, 237, 0.4);
+    }
+  }
+  
+  .animate-pulse-match {
+    animation: pulse-match 1s ease-in-out infinite;
+  }
+  
+  /* Style for matched card highlight */
+  .matched-highlight {
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5);
+  }
+
+  /* Add to your global CSS file */
+
+/* Import Noto Sans Arabic for Kurdish Sorani */
+
+/* Apply Kurdish font conditionally using a data attribute */
+[dir="rtl"] {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* Adjust RTL layout specifics */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .space-x-2 > * + * {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Ensure proper direction for game content */
+html[lang="ku"] {
+  direction: rtl;
+}
+
+html[lang="en"] {
+  direction: ltr;
+}

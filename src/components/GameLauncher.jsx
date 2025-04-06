@@ -344,7 +344,7 @@ const GameLauncher = () => {
               }}
               style={{ backgroundSize: "200% 200%" }}
             >
-              React Games
+              Portal Games
             </motion.span>
             <span className="text-sm md:text-base block mt-2 text-blue-200 font-normal">
               Choose your challenge
