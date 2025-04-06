@@ -1,0 +1,18 @@
+.rotateY-front-90{
+    transform: rotateY(90deg) !important;
+    transition: all ease-out 0.2s !important;
+  }
+  .rotateY-front-0{
+    transform: rotateY(0deg) !important;
+    transition: all ease-in 0.5s !important;
+  }
+  
+  .rotateY-back-90{
+    transform: rotateY(90deg) !important;
+    transition: all ease-in 0.2s !important;
+  }
+  .rotateY-back-0{
+    transform: rotateY(0deg) !important;
+    transition: all ease-in 0.5s !important;
+  }
+  
