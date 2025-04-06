@@ -10,6 +10,7 @@ import Hangmman from "./pages/ReactGame/Hangman.jsx";
 import GameLauncher from "./components/GameLauncher.jsx";
 import TicTacToe from "./pages/ReactGame/TicTacToe.jsx";
 import GameWrapper from "./components/GameWrapper.jsx";
+import RecipeAssembly from "./pages/ReactGame/RecipeAssembly.jsx";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -38,6 +39,14 @@ const AppRoutes = () => {
       element: (
         <GameWrapper gameName="Tic Tac Toe">
           <TicTacToe />
+        </GameWrapper>
+      ),
+    },
+    {
+      path: "/kurdish-recipe",
+      element: (
+        <GameWrapper gameName="Kurdish Recipe Assembly">
+          <RecipeAssembly />
         </GameWrapper>
       ),
     },

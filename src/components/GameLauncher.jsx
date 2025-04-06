@@ -86,6 +86,33 @@ const GAMES = [
       </svg>
     ),
   },
+  {
+    id: "kurdish-Recipe",
+    title: "Kurdish Recipe",
+    path: "/kurdish-recipe",
+    description: "Assemble the recipe",
+    color: "from-red-400 to-red-600",
+    isPopular: false,
+    isNew: false,
+    category: "Casual",
+    releaseDate: "2023-08-21",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-full w-full text-white"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    ),
+  },
 ];
 
 const GameCard = ({ game, index }) => {
@@ -309,7 +336,7 @@ const GameLauncher = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-b from-gray-900 via-indigo-950 to-black flex justify-center items-center p-4"
+      className="min-h-screen bg-gradient-to-b  from-pink-900 via-indigo-950 to-black flex justify-center items-center p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -504,7 +531,7 @@ const GameLauncher = () => {
           transition={{ delay: 0.9 }}
         >
           <p className="text-blue-200 text-xs">
-            © 2025 React Games |{" "}
+            © 2025 Hevar Portals Games |{" "}
             <Link to="#" className="underline hover:text-white">
               About
             </Link>
