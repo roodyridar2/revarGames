@@ -87,9 +87,9 @@ const GAMES = [
     ),
   },
   {
-    id: "kurdish-Recipe",
-    title: "Kurdish Recipe",
-    path: "/kurdish-recipe",
+    id: "ThreeMensMorris",
+    title: "Three Mens Morris",
+    path: "/ThreeMensMorris",
     description: "Assemble the recipe",
     color: "from-red-400 to-red-600",
     isPopular: false,
@@ -336,7 +336,8 @@ const GameLauncher = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-b  from-pink-900 via-indigo-950 to-black flex justify-center items-center p-4"
+      // className="min-h-screen bg-gradient-to-b  from-pink-900 via-indigo-950 to-black flex justify-center items-center p-4"
+      className="min-h-screen bg-gradient-to-b from-blue-700 to-purple-900  flex justify-center items-center p-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
