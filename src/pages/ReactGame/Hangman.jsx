@@ -215,6 +215,7 @@ const KurdishHangman = ({ onLeave }) => {
     // Try to load saved high score
     try {
       const savedHighScore = localStorage.getItem("kurdishHangmanHighScore");
+      console.log("Saved high score:", savedHighScore);
       if (savedHighScore) {
         setHighScore(parseInt(savedHighScore, 10));
       }
@@ -322,22 +323,13 @@ const KurdishHangman = ({ onLeave }) => {
         // playWin();
 
         // Trigger confetti
-        confetti({
-          particleCount: 10,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        // confetti({
+        //   particleCount: 10,
+        //   spread: 70,
+        //   origin: { y: 0.6 },
+        // });
 
-        // Record session with tracker
-        if (tracker) {
-          tracker.endSession(newScore)
-            .then(response => {
-              console.log("Session recorded successfully", response);
-            })
-            .catch(error => {
-              console.error("Failed to record session", error);
-            });
-        }
+
 
         // Update high score if needed
         if (newScore > highScore) {
@@ -353,7 +345,7 @@ const KurdishHangman = ({ onLeave }) => {
         }
       }
     },
-    [word, score, wrongGuesses, hintsUsed, timeLeft, highScore, tracker]
+    [word, score, wrongGuesses, hintsUsed, timeLeft, highScore]
   );
 
   // Effect to set initial masked word
@@ -609,12 +601,12 @@ const KurdishHangman = ({ onLeave }) => {
                   >
                     <span className="font-bold">خاڵ:</span> {score}
                   </motion.div>
-                  <motion.div
+                  {/* <motion.div
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
-                  >
-                    <span className="font-bold">بەرزترین خاڵ:</span> {highScore}
-                  </motion.div>
+                  > */}
+                    {/* <span className="font-bold">بەرزترین خاڵ:</span> {highScore} */}
+                  {/* </motion.div> */}
                 </div>
 
                 <motion.div
@@ -810,14 +802,7 @@ const KurdishHangman = ({ onLeave }) => {
           </AnimatePresence>
         </div>
       </motion.div>
-      <motion.div
-        className="mt-auto text-sm text-center text-gray-400 pt-4 pb-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <p>لەلایەن جیران گەیمسەوە</p>
-      </motion.div>
+
 
       {showLeaderboard && (
         <motion.div
@@ -1175,11 +1160,11 @@ const EnglishHangman = ({ onLeave }) => {
         // playWin();
 
         // Trigger confetti
-        confetti({
-          particleCount: 10,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        // confetti({
+        //   particleCount: 10,
+        //   spread: 70,
+        //   origin: { y: 0.6 },
+        // });
 
         // Record session with tracker
         if (tracker) {
