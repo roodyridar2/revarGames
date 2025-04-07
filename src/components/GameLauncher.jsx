@@ -336,14 +336,28 @@ const GameLauncher = () => {
 
   return (
     <motion.div
-      // className="min-h-screen bg-gradient-to-b  from-pink-900 via-indigo-950 to-black flex justify-center items-center p-4"
-      className="min-h-screen bg-gradient-to-b from-blue-700 to-purple-900  flex justify-center items-center p-4"
+      // Add animation for background
+      className="min-h-screen flex justify-center items-center p-4 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+      {/* Animated background gradient */}
       <motion.div
-        className="max-w-4xl w-full backdrop-blur-lg bg-white/10 rounded-2xl p-8 shadow-2xl border border-white/20"
+        className="absolute inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900"
+        animate={{
+          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+        style={{ backgroundSize: "200% 200%" }}
+      />
+
+      <motion.div
+        className="max-w-4xl w-full backdrop-blur-lg bg-white/10 rounded-2xl p-8 shadow-2xl border border-white/20 relative z-10"
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         transition={{
@@ -374,9 +388,20 @@ const GameLauncher = () => {
             >
               Portal Games
             </motion.span>
-            <span className="text-sm md:text-base block mt-2 text-blue-200 font-normal">
+            <motion.span 
+              className="text-sm md:text-base block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-200 to-fuchsia-300"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              style={{ backgroundSize: "200% 200%" }}
+            >
               Choose your challenge
-            </span>
+            </motion.span>
           </h1>
 
           {/* Search and Filter Controls */}
@@ -414,7 +439,6 @@ const GameLauncher = () => {
             </div>
 
             {/* Category filter */}
-            {/* Category filter - with styled options */}
             <div className="relative w-full max-w-xs">
               <select
                 value={categoryFilter}
@@ -477,10 +501,21 @@ const GameLauncher = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: categoryIndex * 0.1 }}
                 >
-                  <h3 className="text-xs text-fuchsia-200 font-medium uppercase tracking-wider px-2 py-1 flex items-center">
+                  <motion.h3 
+                    className="text-xs font-medium uppercase tracking-wider px-2 py-1 flex items-center text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-pink-300 to-blue-300"
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
                     <span className="inline-block w-2 h-2 bg-fuchsia-400 rounded-full mr-2"></span>
                     {category.title} ({category.games.length})
-                  </h3>
+                  </motion.h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                     {category.games.map((game, gameIndex) => (
                       <GameCard key={game.id} game={game} index={gameIndex} />
@@ -531,12 +566,23 @@ const GameLauncher = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          <p className="text-blue-200 text-xs">
+          <motion.p 
+            className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-fuchsia-200 to-cyan-200"
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+            style={{ backgroundSize: "200% 200%" }}
+          >
             © 2025 Hevar Portals Games |{" "}
             <Link to="#" className="underline hover:text-white">
               About
             </Link>
-          </p>
+          </motion.p>
         </motion.div>
       </motion.div>
     </motion.div>
