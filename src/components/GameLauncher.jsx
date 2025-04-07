@@ -349,7 +349,7 @@ const GameLauncher = () => {
           backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
         }}
         transition={{
-          duration: 1,
+          duration: 10,
           repeat: Infinity,
           repeatType: "reverse",
         }}
