@@ -18,7 +18,7 @@ const ThreeMensMorris = () => {
   // Translations
   const translations = {
     english: {
-      title: "Three rock and paper",
+      title: "Three rocks and papers",
       turn: "{player}'s Turn",
       placementPhase: "Placement Phase",
       movementPhase: "Movement Phase",
