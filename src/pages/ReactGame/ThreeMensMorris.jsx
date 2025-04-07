@@ -16,7 +16,7 @@ const ThreeMensMorris = () => {
   // Translations
   const translations = {
     english: {
-      title: "Three Men's Morris",
+      title: "Three rock and paper",
       turn: "{player}'s Turn",
       placementPhase: "Placement Phase",
       movementPhase: "Movement Phase",
@@ -36,7 +36,7 @@ const ThreeMensMorris = () => {
       movementTip: "Tip: Click on your piece to select it, then click on a valid position to move."
     },
     kurdish: {
-      title: "یاری سێ پیاوی موریس",
+      title: "یاری   ",
       turn: "نۆرەی {player}",
       placementPhase: "قۆناغی دانان",
       movementPhase: "قۆناغی جووڵان",
