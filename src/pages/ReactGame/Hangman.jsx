@@ -1061,29 +1061,32 @@ const EnglishHangman = ({ onLeave }) => {
 
   // Start game with selected category
   const startGame = (categoryKey = null) => {
-    // playClick();
-    let categoryToUse = categoryKey;
+    setTimeout(() => {
+      // playClick();
+      let categoryToUse = categoryKey;
 
-    // Use random category if none is selected
-    if (!categoryToUse) {
-      const categories = Object.keys(wordCategories);
-      categoryToUse = categories[Math.floor(Math.random() * categories.length)];
-    }
+      // Use random category if none is selected
+      if (!categoryToUse) {
+        const categories = Object.keys(wordCategories);
+        categoryToUse =
+          categories[Math.floor(Math.random() * categories.length)];
+      }
 
-    setSelectedCategory(categoryToUse);
-    const wordList = wordCategories[categoryToUse].words;
-    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+      setSelectedCategory(categoryToUse);
+      const wordList = wordCategories[categoryToUse].words;
+      const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-    setCategory(wordCategories[categoryToUse].name);
-    setWord(randomWord);
-    setMaskedWord("_".repeat(randomWord.length));
-    setGuessedLetters([]);
-    setWrongGuesses(0);
-    setGameStatus("playing");
-    setShowHint(false);
-    setHintsUsed(0);
-    setTimeLeft(60);
-    setIsTimerActive(true);
+      setCategory(wordCategories[categoryToUse].name);
+      setWord(randomWord);
+      setMaskedWord("_".repeat(randomWord.length));
+      setGuessedLetters([]);
+      setWrongGuesses(0);
+      setGameStatus("playing");
+      setShowHint(false);
+      setHintsUsed(0);
+      setTimeLeft(60);
+      setIsTimerActive(true);
+    }, 1000);
   };
 
   // Handle letter guess
