@@ -85,6 +85,7 @@ const KurdishHangman = ({ onLeave }) => {
     "ۊ",
     "ی",
     "ێ",
+    "ئ",
   ];
 
   // Vocabulary by categories (Kurdish Sorani)
@@ -217,7 +218,7 @@ const KurdishHangman = ({ onLeave }) => {
       const savedHighScore = localStorage.getItem("kurdishHangmanHighScore");
       console.log("Saved high score:", savedHighScore);
       if (savedHighScore) {
-        setHighScore(parseInt(savedHighScore, 10));
+        // setHighScore(parseInt(savedHighScore, 10));
       }
     } catch {
       // Ignore localStorage errors
@@ -333,7 +334,7 @@ const KurdishHangman = ({ onLeave }) => {
 
         // Update high score if needed
         if (newScore > highScore) {
-          setHighScore(newScore);
+          // setHighScore(newScore);
           try {
             localStorage.setItem(
               "kurdishHangmanHighScore",
@@ -595,12 +596,12 @@ const KurdishHangman = ({ onLeave }) => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex justify-between mb-4">
-                  <motion.div
+                  {/* <motion.div
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="font-bold">خاڵ:</span> {score}
-                  </motion.div>
+                  </motion.div> */}
                   {/* <motion.div
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
@@ -741,7 +742,7 @@ const KurdishHangman = ({ onLeave }) => {
                         transition={{ duration: 0.3, ease: "linear" }}
                       >
                         <p className="mb-2">
-                          ئایا دەتەوێت پیتێک ئاشکرا بکەیت؟ (١٥ خاڵ کەم دەکاتەوە)
+                          ئایا دەتەوێت پیتێک ئاشکرا بکەیت؟ 
                         </p>
                         <div className="flex justify-center gap-2">
                           <motion.button
@@ -1054,7 +1055,7 @@ const EnglishHangman = ({ onLeave }) => {
     try {
       const savedHighScore = localStorage.getItem("englishHangmanHighScore");
       if (savedHighScore) {
-        setHighScore(parseInt(savedHighScore, 10));
+        // setHighScore(parseInt(savedHighScore, 10));
       }
     } catch {
       // Ignore localStorage errors
@@ -1179,7 +1180,7 @@ const EnglishHangman = ({ onLeave }) => {
 
         // Update high score if needed
         if (newScore > highScore) {
-          setHighScore(newScore);
+          // setHighScore(newScore);
           try {
             localStorage.setItem(
               "englishHangmanHighScore",
@@ -1435,18 +1436,18 @@ const EnglishHangman = ({ onLeave }) => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex justify-between mb-4">
-                  <motion.div
+                  {/* <motion.div
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="font-bold">Score:</span> {score}
-                  </motion.div>
-                  <motion.div
+                  </motion.div> */}
+                  {/* <motion.div
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span className="font-bold">High Score:</span> {highScore}
-                  </motion.div>
+                  </motion.div> */}
                 </div>
 
                 <motion.div
@@ -1581,8 +1582,7 @@ const EnglishHangman = ({ onLeave }) => {
                         transition={{ duration: 0.3, ease: "linear" }}
                       >
                         <p className="mb-2">
-                          Do you want to reveal a letter? (Reduces score by 15
-                          points)
+                          Do you want to reveal a letter? 
                         </p>
                         <div className="flex justify-center gap-2">
                           <motion.button

@@ -24,7 +24,7 @@ const TicTacToe = () => {
         setWinningLine(pattern);
         setGameHistory(prev => ({
           ...prev,
-          [board[a]]: prev[board[a]] + 1
+          [board[a]]: prev[board[a]] + 0.5
         }));
         setIsConfettiActive(true);
         return;
