@@ -43,12 +43,12 @@ const KurdishHangman = ({ onLeave }) => {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   // Sound effects
-//   const [playCorrect] = useSound("/sounds/correct.mp3", { volume: 0.5 });
-//   const [playWrong] = useSound("/sounds/wrong.mp3", { volume: 0.5 });
-//   const [playWin] = useSound("/sounds/win.mp3", { volume: 0.7 });
-//   const [playLose] = useSound("/sounds/lose.mp3", { volume: 0.7 });
-//   const [playClick] = useSound("/sounds/click.mp3", { volume: 0.3 });
-//   const [playHint] = useSound("/sounds/hint.mp3", { volume: 0.5 });
+  //   const [playCorrect] = useSound("/sounds/correct.mp3", { volume: 0.5 });
+  //   const [playWrong] = useSound("/sounds/wrong.mp3", { volume: 0.5 });
+  //   const [playWin] = useSound("/sounds/win.mp3", { volume: 0.7 });
+  //   const [playLose] = useSound("/sounds/lose.mp3", { volume: 0.7 });
+  //   const [playClick] = useSound("/sounds/click.mp3", { volume: 0.3 });
+  //   const [playHint] = useSound("/sounds/hint.mp3", { volume: 0.5 });
 
   // Kurdish Sorani alphabet
   const kurdishAlphabet = [
@@ -167,15 +167,16 @@ const KurdishHangman = ({ onLeave }) => {
       timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     } else if (isTimerActive && timeLeft === 0) {
       setGameStatus("lost");
-    //   playLose();
-      
+      //   playLose();
+
       // Record session with tracker for timeout
       if (tracker) {
-        tracker.endSession(score)
-          .then(response => {
+        tracker
+          .endSession(score)
+          .then((response) => {
             console.log("Session recorded successfully", response);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Failed to record session", error);
           });
       }
@@ -192,20 +193,19 @@ const KurdishHangman = ({ onLeave }) => {
         setTracker(trackerInstance);
       }
     };
-    
+
     // Check if SDK is already loaded
     if (window.GameSessionTracker) {
       initTracker();
     } else {
       // Wait for SDK to load
-      window.addEventListener('game-session-tracker-loaded', initTracker);
+      window.addEventListener("game-session-tracker-loaded", initTracker);
     }
-    
+
     return () => {
-      window.removeEventListener('game-session-tracker-loaded', initTracker);
+      window.removeEventListener("game-session-tracker-loaded", initTracker);
     };
   }, []);
-
 
   // Show categories
   const showCategories = () => {
@@ -226,29 +226,32 @@ const KurdishHangman = ({ onLeave }) => {
 
   // Start game with selected category
   const startGame = (categoryKey = null) => {
-    // playClick();
-    let categoryToUse = categoryKey;
+    setTimeout(() => {
+      // playClick();
+      let categoryToUse = categoryKey;
 
-    // Use random category if none is selected
-    if (!categoryToUse) {
-      const categories = Object.keys(wordCategories);
-      categoryToUse = categories[Math.floor(Math.random() * categories.length)];
-    }
+      // Use random category if none is selected
+      if (!categoryToUse) {
+        const categories = Object.keys(wordCategories);
+        categoryToUse =
+          categories[Math.floor(Math.random() * categories.length)];
+      }
 
-    setSelectedCategory(categoryToUse);
-    const wordList = wordCategories[categoryToUse].words;
-    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+      setSelectedCategory(categoryToUse);
+      const wordList = wordCategories[categoryToUse].words;
+      const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-    setCategory(wordCategories[categoryToUse].name);
-    setWord(randomWord);
-    setMaskedWord("_".repeat(randomWord.length));
-    setGuessedLetters([]);
-    setWrongGuesses(0);
-    setGameStatus("playing");
-    setShowHint(false);
-    setHintsUsed(0);
-    setTimeLeft(60);
-    setIsTimerActive(true);
+      setCategory(wordCategories[categoryToUse].name);
+      setWord(randomWord);
+      setMaskedWord("_".repeat(randomWord.length));
+      setGuessedLetters([]);
+      setWrongGuesses(0);
+      setGameStatus("playing");
+      setShowHint(false);
+      setHintsUsed(0);
+      setTimeLeft(60);
+      setIsTimerActive(true);
+    }, 1000);
   };
 
   // Handle letter guess
@@ -262,11 +265,11 @@ const KurdishHangman = ({ onLeave }) => {
 
     // Check if the letter is in the word
     if (word.includes(letter)) {
-    //   playCorrect();
+      //   playCorrect();
       // Update masked word
       updateMaskedWord(newGuessedLetters);
     } else {
-    //   playWrong();
+      //   playWrong();
       // Increment wrong guesses
       const newWrongGuesses = wrongGuesses + 1;
       setWrongGuesses(newWrongGuesses);
@@ -276,14 +279,15 @@ const KurdishHangman = ({ onLeave }) => {
         setGameStatus("lost");
         setIsTimerActive(false);
         // playLose();
-        
+
         // Record session with tracker for lost game
         if (tracker) {
-          tracker.endSession(score)
-            .then(response => {
+          tracker
+            .endSession(score)
+            .then((response) => {
               console.log("Session recorded successfully", response);
             })
-            .catch(error => {
+            .catch((error) => {
               console.error("Failed to record session", error);
             });
         }
@@ -328,8 +332,6 @@ const KurdishHangman = ({ onLeave }) => {
         //   spread: 70,
         //   origin: { y: 0.6 },
         // });
-
-
 
         // Update high score if needed
         if (newScore > highScore) {
@@ -467,8 +469,6 @@ const KurdishHangman = ({ onLeave }) => {
     );
   };
 
-
-
   return (
     <div
       className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-4 font-sans"
@@ -499,9 +499,7 @@ const KurdishHangman = ({ onLeave }) => {
           </motion.button>
         </div>
 
-        <div
-        className="flex flex-col items-center gap-4"
-        >
+        <div className="flex flex-col items-center gap-4">
           <AnimatePresence mode="wait">
             {gameStatus === "initial" ? (
               <motion.div
@@ -605,7 +603,7 @@ const KurdishHangman = ({ onLeave }) => {
                     className="bg-gradient-to-r from-gray-800 to-indigo-900 px-4 py-2 rounded-xl shadow-md text-white border border-opacity-20 border-indigo-500"
                     whileHover={{ scale: 1.05 }}
                   > */}
-                    {/* <span className="font-bold">بەرزترین خاڵ:</span> {highScore} */}
+                  {/* <span className="font-bold">بەرزترین خاڵ:</span> {highScore} */}
                   {/* </motion.div> */}
                 </div>
 
@@ -740,9 +738,7 @@ const KurdishHangman = ({ onLeave }) => {
                         exit={{ opacity: 0, scale: 0.1 }}
                         transition={{ duration: 0.3, ease: "linear" }}
                       >
-                        <p className="mb-2">
-                          ئایا دەتەوێت پیتێک ئاشکرا بکەیت؟ 
-                        </p>
+                        <p className="mb-2">ئایا دەتەوێت پیتێک ئاشکرا بکەیت؟</p>
                         <div className="flex justify-center gap-2">
                           <motion.button
                             onClick={getHint}
@@ -803,7 +799,6 @@ const KurdishHangman = ({ onLeave }) => {
         </div>
       </motion.div>
 
-
       {showLeaderboard && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
@@ -817,7 +812,9 @@ const KurdishHangman = ({ onLeave }) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-center">لیستی بەرزترین نمرەکان</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center">
+              لیستی بەرزترین نمرەکان
+            </h2>
             {leaderboard.length > 0 ? (
               <div className="space-y-2">
                 {leaderboard.map((entry, index) => (
@@ -871,12 +868,12 @@ const EnglishHangman = ({ onLeave }) => {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   // Sound effects
-//   const [playCorrect] = useSound("/sounds/correct.mp3", { volume: 0.5 });
-//   const [playWrong] = useSound("/sounds/wrong.mp3", { volume: 0.5 });
-//   const [playWin] = useSound("/sounds/win.mp3", { volume: 0.7 });
-//   const [playLose] = useSound("/sounds/lose.mp3", { volume: 0.7 });
-//   const [playClick] = useSound("/sounds/click.mp3", { volume: 0.3 });
-//   const [playHint] = useSound("/sounds/hint.mp3", { volume: 0.5 });
+  //   const [playCorrect] = useSound("/sounds/correct.mp3", { volume: 0.5 });
+  //   const [playWrong] = useSound("/sounds/wrong.mp3", { volume: 0.5 });
+  //   const [playWin] = useSound("/sounds/win.mp3", { volume: 0.7 });
+  //   const [playLose] = useSound("/sounds/lose.mp3", { volume: 0.7 });
+  //   const [playClick] = useSound("/sounds/click.mp3", { volume: 0.3 });
+  //   const [playHint] = useSound("/sounds/hint.mp3", { volume: 0.5 });
 
   // English alphabet
   const englishAlphabet = [
@@ -994,15 +991,16 @@ const EnglishHangman = ({ onLeave }) => {
       timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     } else if (isTimerActive && timeLeft === 0) {
       setGameStatus("lost");
-    //   playLose();
-      
+      //   playLose();
+
       // Record session with tracker for timeout
       if (tracker) {
-        tracker.endSession(score)
-          .then(response => {
+        tracker
+          .endSession(score)
+          .then((response) => {
             console.log("Session recorded successfully", response);
           })
-          .catch(error => {
+          .catch((error) => {
             console.error("Failed to record session", error);
           });
       }
@@ -1019,27 +1017,27 @@ const EnglishHangman = ({ onLeave }) => {
         setTracker(trackerInstance);
       }
     };
-    
+
     // Check if SDK is already loaded
     if (window.GameSessionTracker) {
       initTracker();
     } else {
       // Wait for SDK to load
-      window.addEventListener('game-session-tracker-loaded', initTracker);
+      window.addEventListener("game-session-tracker-loaded", initTracker);
     }
-    
+
     return () => {
-      window.removeEventListener('game-session-tracker-loaded', initTracker);
+      window.removeEventListener("game-session-tracker-loaded", initTracker);
     };
   }, []);
 
   // Load SDK script
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '/sdk/game-session-tracker.js';
+    const script = document.createElement("script");
+    script.src = "/sdk/game-session-tracker.js";
     script.async = true;
     document.body.appendChild(script);
-    
+
     return () => {
       document.body.removeChild(script);
     };
@@ -1099,11 +1097,11 @@ const EnglishHangman = ({ onLeave }) => {
 
     // Check if the letter is in the word
     if (word.includes(letter)) {
-    //   playCorrect();
+      //   playCorrect();
       // Update masked word
       updateMaskedWord(newGuessedLetters);
     } else {
-    //   playWrong();
+      //   playWrong();
       // Increment wrong guesses
       const newWrongGuesses = wrongGuesses + 1;
       setWrongGuesses(newWrongGuesses);
@@ -1113,14 +1111,15 @@ const EnglishHangman = ({ onLeave }) => {
         setGameStatus("lost");
         setIsTimerActive(false);
         // playLose();
-        
+
         // Record session with tracker for lost game
         if (tracker) {
-          tracker.endSession(score)
-            .then(response => {
+          tracker
+            .endSession(score)
+            .then((response) => {
               console.log("Session recorded successfully", response);
             })
-            .catch(error => {
+            .catch((error) => {
               console.error("Failed to record session", error);
             });
         }
@@ -1168,11 +1167,12 @@ const EnglishHangman = ({ onLeave }) => {
 
         // Record session with tracker
         if (tracker) {
-          tracker.endSession(newScore)
-            .then(response => {
+          tracker
+            .endSession(newScore)
+            .then((response) => {
               console.log("Session recorded successfully", response);
             })
-            .catch(error => {
+            .catch((error) => {
               console.error("Failed to record session", error);
             });
         }
@@ -1312,7 +1312,6 @@ const EnglishHangman = ({ onLeave }) => {
       </svg>
     );
   };
-
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-4 font-sans">
@@ -1580,9 +1579,7 @@ const EnglishHangman = ({ onLeave }) => {
                         exit={{ opacity: 0, scale: 0.1 }}
                         transition={{ duration: 0.3, ease: "linear" }}
                       >
-                        <p className="mb-2">
-                          Do you want to reveal a letter? 
-                        </p>
+                        <p className="mb-2">Do you want to reveal a letter?</p>
                         <div className="flex justify-center gap-2">
                           <motion.button
                             onClick={getHint}
@@ -1641,8 +1638,6 @@ const EnglishHangman = ({ onLeave }) => {
             )}
           </AnimatePresence>
         </div>
-
-   
       </motion.div>
 
       {showLeaderboard && (
