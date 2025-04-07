@@ -88,9 +88,9 @@ const GAMES = [
   },
   {
     id: "ThreeMensMorris",
-    title: "Three Mens Morris",
+    title: "Three rocks and papers",
     path: "/ThreeMensMorris",
-    description: "Assemble the recipe",
+    description: "three rocks and papers",
     color: "from-red-400 to-red-600",
     isPopular: false,
     isNew: false,
