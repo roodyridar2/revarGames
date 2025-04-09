@@ -192,7 +192,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
 
   return (
     <motion.div
-      className={`  w-screen h-screen ${isKurdish ? "rtl" : "ltr"}  `}
+      className={`  w-screen h-screen ${isKurdish ? "rtl" : "ltr"}  bg-gradient-to-b from-[#f0f0fa] to-[#9ad7f0]`}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -203,11 +203,10 @@ Finally, I hope this platform inspires fun and participation, bringing people to
         direction: isKurdish ? "rtl" : "ltr",
         margin: "0 auto",
         padding: "2rem",
-        backgroundColor: "transparent", // Changed from #f8f9fa to transparent
         borderRadius: "16px",
         boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
         overflow: "hidden",
-        position: "relative", // Added for absolute positioning context
+        position: "relative", 
       }}
     >
       {/* Add gradient background */}
