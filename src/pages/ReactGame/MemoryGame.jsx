@@ -29,7 +29,7 @@ const Card = ({ card, handleChoice, flipped, disabled, foodCardCover }) => {
       >
         {/* Card Front (Back of card) */}
         <motion.div 
-          className="absolute w-full h-full rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center backface-hidden shadow-lg"
+          className="absolute w-full h-full rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center backface-hidden shadow-lg"
         >
           <img src={foodCardCover} alt="card back" className="w-4/5 h-4/5 object-contain" />
         </motion.div>
@@ -252,13 +252,13 @@ function MemoryGame() {
     i18n.changeLanguage(language);
     
     // Set document direction based on language
-    if (language === 'ku') {
-      document.documentElement.setAttribute('dir', 'rtl');
-      document.documentElement.setAttribute('lang', 'ku');
-    } else {
-      document.documentElement.setAttribute('dir', 'ltr');
-      document.documentElement.setAttribute('lang', 'en');
-    }
+    // if (language === 'ku') {
+    //   document.documentElement.setAttribute('dir', 'rtl');
+    //   document.documentElement.setAttribute('lang', 'ku');
+    // } else {
+    //   document.documentElement.setAttribute('dir', 'ltr');
+    //   document.documentElement.setAttribute('lang', 'en');
+    // }
   }, [language]);
 
   // Format time as MM:SS
@@ -269,7 +269,7 @@ function MemoryGame() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-500 to-purple-600 min-h-screen w-full flex justify-center items-center flex-col overflow-hidden ">
+    <div className="bg-gradient-to-b from-red-400 to-purple-600 min-h-screen w-full flex justify-center items-center flex-col overflow-hidden ">
       {!gameStarted ? (
         // Start screen with difficulty selection
         <motion.div 

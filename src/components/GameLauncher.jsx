@@ -97,19 +97,14 @@ const GAMES = [
     category: "Casual",
     releaseDate: "2023-08-21",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full w-full text-white"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6 18L18 6M6 6l12 12"
-        />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="12" r="1.5" />
+        <circle cx="12" cy="12" r="1.5" />
+        <circle cx="18" cy="12" r="1.5" />
+        
+        <path d="M4 6h16M4 12h6M14 12h6M4 18h10M16 18h4" />
+        
+        <circle cx="12" cy="12" r="9" fill="none" />
       </svg>
     ),
   },
@@ -386,7 +381,7 @@ const GameLauncher = () => {
               }}
               style={{ backgroundSize: "200% 200%" }}
             >
-              Portal Games
+              KRD. Portal Games
             </motion.span>
             <motion.span 
               className="text-sm md:text-base block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-200 to-fuchsia-300"
