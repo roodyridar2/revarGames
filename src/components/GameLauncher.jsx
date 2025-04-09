@@ -562,7 +562,7 @@ const GameLauncher = () => {
           transition={{ delay: 0.9 }}
         >
           <motion.p 
-            className="text-xs text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-fuchsia-200 to-cyan-200"
+            className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-fuchsia-200 to-cyan-200"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -574,7 +574,11 @@ const GameLauncher = () => {
             style={{ backgroundSize: "200% 200%" }}
           >
             © 2025 Hevar Portals Games |{" "}
-            <Link to="#" className="underline hover:text-white">
+            <Link to="#" className="underline hover:text-white"
+            //replace with your about page link
+
+            onClick={() => window.location.href = "/about"}
+            >
               About
             </Link>
           </motion.p>

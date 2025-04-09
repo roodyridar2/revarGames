@@ -12,6 +12,7 @@ import TicTacToe from "./pages/ReactGame/TicTacToe.jsx";
 import GameWrapper from "./components/GameWrapper.jsx";
 import RecipeAssembly from "./pages/ReactGame/ThreeMensMorris.jsx";
 import ThreeMensMorris from "./pages/ReactGame/ThreeMensMorris.jsx";
+import AboutPage from "./pages/About.jsx";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const AppRoutes = () => {
           <ThreeMensMorris />
         </GameWrapper>
       ),
+    },
+    {
+      path: "/about",
+      element: <AboutPage />,
     },
     {
       path: "*",
