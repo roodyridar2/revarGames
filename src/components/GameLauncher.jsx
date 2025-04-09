@@ -578,12 +578,11 @@ const GameLauncher = () => {
             style={{ backgroundSize: "200% 200%" }}
           >
             © 2025 Hevar Portals Games |{" "}
-            <motion.span className="underline hover:text-white cursor-pointer animate-bounce"
+            <motion.span className="underline text-white cursor-pointer animate-bounce"
             //change route using react router dom
             onClick={() => navigate("/about")}
-            whileHover={{ scale: 1.1, color: "#fff" }}
+            whileHover={{ scale: 1.1}}
             whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.2 }}
     
 
 
