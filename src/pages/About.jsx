@@ -118,7 +118,7 @@ const AboutPage = ({ onLanguageChange }) => {
   // Profile data for both languages
   const profileData = {
     kurdish: {
-      title: "دەربارەی",
+      title: "about",
       content: `دروستکردنی ئەم ماڵپەڕی پۆرتاڵییە بۆ یارییەکان گەشتێکی سەرنجڕاکێشە، ئامانج لەم پڕۆژەیە دابینکردنی کەشێکی زیندوی چێژ بەخشەکە یاریزانەکان لە هەرتەمەنێک دابن بتوانن چێژوەرگرن لە کۆمەڵێک یاری جۆراوجۆر.
 
 من بە وردی هەڵبژاردنێکم کۆکردەوە کە جێگەی ئارەزوو و ئاستی لێهاتوویی جۆراوجۆر بێت، دڵنیا بووم لەوەی هەموو کەسێک بتوانێت کاتی خۆش پێکەوە بەسەر ببەن. ئەم پۆرتاڵە چەند یارییەک لە خۆ دەگرێت ؛ ناوەندێکە بۆ بەسەربردن و دۆزینەوەی ئامانجی یاریەکە و پەیوەندی ڕاستەوخۆ لەگەڵ هاوڕێیانت بە شێوەی offline.
@@ -191,24 +191,21 @@ Finally, I hope this platform inspires fun and participation, bringing people to
   };
 
   return (
-    <motion.div
-      className={`  w-screen h-screen ${isKurdish ? "rtl" : "ltr"}  inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900 text-white`}
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      style={{
-        fontFamily: isKurdish
-          ? '"Rabar_013", Arial, sans-serif'
-          : '"Roboto", Arial, sans-serif',
-        direction: isKurdish ? "rtl" : "ltr",
-        margin: "0 auto",
-        padding: "2rem",
-        borderRadius: "16px",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-        overflow: "hidden",
-        position: "relative", 
-      }}
-    >
+<motion.div
+    className="fixed w-screen h-screen inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900 text-white overflow-auto"
+    initial="hidden"
+    animate="visible"
+    variants={containerVariants}
+    style={{
+      fontFamily: isKurdish
+        ? '"Rabar_013", Arial, sans-serif'
+        : '"Roboto", Arial, sans-serif',
+      direction: isKurdish ? "rtl" : "ltr",
+      margin: 0,
+      padding: "2rem",
+      position: "relative",
+    }}
+  >
       {/* Add gradient background */}
       <GradientBackground />
 
@@ -363,7 +360,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
           }}
         >
           <motion.h1
-          className=" p-2 text-white font-bold "
+          className=" p-2 text-white font-bold  text-center"
 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -372,7 +369,6 @@ Finally, I hope this platform inspires fun and participation, bringing people to
               fontSize: "2.5rem",
               marginBottom: "1.5rem",
               fontWeight: "700",
-              letterSpacing: isKurdish ? "normal" : "-0.5px",
               WebkitBackgroundClip: "text",
             }}
           >
