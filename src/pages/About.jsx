@@ -192,7 +192,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
 
   return (
     <motion.div
-      className={`  w-screen h-screen ${isKurdish ? "rtl" : "ltr"}  bg-gradient-to-b from-[#f0f0fa] to-[#9ad7f0]`}
+      className={`  w-screen h-screen ${isKurdish ? "rtl" : "ltr"}  inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900 text-white`}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -251,7 +251,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
           whileTap={{ scale: 0.95 }}
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.8)",
-            color: "#3498db",
+            color: "#000",
             border: "1px solid #3498db",
             borderRadius: "8px",
             padding: "0.6rem 1.2rem",
@@ -363,34 +363,31 @@ Finally, I hope this platform inspires fun and participation, bringing people to
           }}
         >
           <motion.h1
-          className=" p-2"
+          className=" p-2 text-white font-bold "
 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             style={{
-              color: "#2c3e50",
               fontSize: "2.5rem",
               marginBottom: "1.5rem",
               fontWeight: "700",
               letterSpacing: isKurdish ? "normal" : "-0.5px",
-              background: "linear-gradient(135deg, #2c3e50, #3498db)",
               WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
             }}
           >
             {currentLang.title}
           </motion.h1>
 
           <motion.div
-          className=" p-2 "
+
+          className=" p-2  text-white font-bold  "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.7 }}
             style={{
               lineHeight: "1.9",
               fontSize: "1.1rem",
-              color: "#4a5568",
               whiteSpace: "pre-line",
             }}
           >
