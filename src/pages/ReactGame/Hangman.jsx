@@ -668,7 +668,7 @@ const KurdishHangman = ({ onLeave }) => {
                         🎉 پیرۆزبایی! تۆ بردتەوە! 🎉
                       </p>
                       <p>
-                        وشەکە بوو:{" "}
+                        وشەکە:{" "}
                         <span className="font-bold text-cyan-300">{word}</span>
                       </p>
                     </motion.div>
@@ -689,7 +689,7 @@ const KurdishHangman = ({ onLeave }) => {
                         😢 بەداخەوە! کاتت تەواو بوو
                       </p>
                       <p>
-                        وشەکە بوو:{" "}
+                        وشەکە:{" "}
                         <span className="font-bold text-cyan-300">{word}</span>
                       </p>
                     </motion.div>
