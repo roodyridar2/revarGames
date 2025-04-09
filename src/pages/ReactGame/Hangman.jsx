@@ -615,7 +615,7 @@ const KurdishHangman = ({ onLeave }) => {
                 >
                   <div className="flex justify-between items-center mb-3">
                     <p className="text-sm mb-2 text-center text-gray-300">
-                      <span className="font-bold">بابەت:</span> {category}
+                      {/* <span className="font-bold">بابەت:</span> {category} */}
                     </p>
                     {gameStatus === "playing" && (
                       <div
@@ -1459,7 +1459,7 @@ const EnglishHangman = ({ onLeave }) => {
                 >
                   <div className="flex justify-between items-center mb-3">
                     <p className="text-sm mb-2 text-center text-gray-300">
-                      <span className="font-bold">Category:</span> {category}
+                      {/* <span className="font-bold">Category:</span> {category} */}
                     </p>
                     {gameStatus === "playing" && (
                       <div

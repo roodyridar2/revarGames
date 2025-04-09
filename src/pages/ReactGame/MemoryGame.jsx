@@ -69,7 +69,7 @@ const DIFFICULTY_SETTINGS = {
   },
   hard: {
     cardCount: 16, // 8 pairs - would need 2 more card types
-    timeLimit: 60,
+    timeLimit: 45,
     gridCols: "grid-cols-4",
   },
 };
