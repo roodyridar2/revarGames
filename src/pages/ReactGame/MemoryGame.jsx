@@ -69,7 +69,7 @@ const DIFFICULTY_SETTINGS = {
   },
   hard: {
     cardCount: 16, // 8 pairs - would need 2 more card types
-    timeLimit: 45,
+    timeLimit: 30,
     gridCols: "grid-cols-4",
   },
 };
@@ -231,13 +231,19 @@ function MemoryGame() {
     setTurns((prev) => prev + 1);
     setDisabled(false);
   };
+  
+  useEffect(() => {
+    if (gameStarted && difficulty) {
+      shuffleCards();
+    }
+  }, [difficulty, gameStarted]);
 
   // Start a new game
   const startGame = (selectedDifficulty) => {
     console.log("Starting game with difficulty:", selectedDifficulty);
     setDifficulty( selectedDifficulty );
     setGameStarted(true);
-    setTimeout(() => shuffleCards(), 100);
+    // setTimeout(() => shuffleCards(), 100);
   };
 
   // Rematch with same difficulty
