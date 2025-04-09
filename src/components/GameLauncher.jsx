@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 // Game data array with enhanced colors and icons
 const GAMES = [
@@ -278,7 +279,10 @@ const GameCard = ({ game, index }) => {
   );
 };
 
+
 const GameLauncher = () => {
+  const navigate = useNavigate();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
 
@@ -574,13 +578,14 @@ const GameLauncher = () => {
             style={{ backgroundSize: "200% 200%" }}
           >
             © 2025 Hevar Portals Games |{" "}
-            <Link to="#" className="underline hover:text-white"
-            //replace with your about page link
+            <span className="underline hover:text-white"
+            //change route using react router dom
+            onClick={() => navigate("/about")}
 
-            onClick={() => window.location.href = "/about"}
+
             >
               About
-            </Link>
+            </span>
           </motion.p>
         </motion.div>
       </motion.div>
