@@ -13,6 +13,7 @@ import GameWrapper from "./components/GameWrapper.jsx";
 import RecipeAssembly from "./pages/ReactGame/ThreeMensMorris.jsx";
 import ThreeMensMorris from "./pages/ReactGame/ThreeMensMorris.jsx";
 import AboutPage from "./pages/About.jsx";
+import QAGame from "./pages/ReactGame/QAGame.jsx";
 
 const AppRoutes = () => {
   const router = createBrowserRouter([
@@ -49,6 +50,14 @@ const AppRoutes = () => {
       element: (
         <GameWrapper gameName="Three Rocks and Papers">
           <ThreeMensMorris />
+        </GameWrapper>
+      ),
+    },
+    {
+      path: "/QAgame",
+      element: (
+        <GameWrapper gameName="Three Rocks and Papers">
+          <QAGame />
         </GameWrapper>
       ),
     },

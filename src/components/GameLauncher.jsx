@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import QRCode from "react-qr-code";
 
 // Game data array with enhanced colors and icons
 const GAMES = [
@@ -98,14 +99,54 @@ const GAMES = [
     category: "Casual",
     releaseDate: "2023-08-21",
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
         <circle cx="6" cy="12" r="1.5" />
         <circle cx="12" cy="12" r="1.5" />
         <circle cx="18" cy="12" r="1.5" />
-        
+
         <path d="M4 6h16M4 12h6M14 12h6M4 18h10M16 18h4" />
-        
+
         <circle cx="12" cy="12" r="9" fill="none" />
+      </svg>
+    ),
+  },
+  {
+    id: "QAgame",
+    title: "QA Game",
+    path: "/QAgame",
+    description: "three rocks and papers",
+    color: "from-blue-400 to-blue-600",
+    isPopular: false,
+    isNew: false,
+    category: "Word",
+    releaseDate: "2023-08-21",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        fill="none"
+        stroke="white"
+        stroke-width="7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="50" cy="50" r="45" stroke="white" />
+
+        <path
+          d="M35 35 Q35 25 45 25 Q55 25 55 35 Q55 42 50 45 L50 55"
+          stroke="white"
+        />
+        <circle cx="50" cy="60" r="2" fill="white" stroke="white" />
+
+        <path d="M35 75 L50 75 L65 75" stroke="white" stroke-dasharray="2 2" />
       </svg>
     ),
   },
@@ -279,7 +320,6 @@ const GameCard = ({ game, index }) => {
   );
 };
 
-
 const GameLauncher = () => {
   const navigate = useNavigate();
 
@@ -387,7 +427,7 @@ const GameLauncher = () => {
             >
               KRD. Portal Games
             </motion.span>
-            <motion.span 
+            <motion.span
               className="text-sm md:text-base block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-200 to-fuchsia-300"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -500,7 +540,7 @@ const GameLauncher = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: categoryIndex * 0.1 }}
                 >
-                  <motion.h3 
+                  <motion.h3
                     className="text-xs font-medium uppercase tracking-wider px-2 py-1 flex items-center text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-300 via-pink-300 to-blue-300"
                     animate={{
                       backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -565,7 +605,7 @@ const GameLauncher = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
         >
-          <motion.p 
+          <motion.p
             className="text-sm text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-fuchsia-200 to-cyan-200"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -578,17 +618,16 @@ const GameLauncher = () => {
             style={{ backgroundSize: "200% 200%" }}
           >
             © 2025 Hevar Portals Games |{" "}
-            <motion.span className="underline text-white cursor-pointer animate-bounce"
-            //change route using react router dom
-            onClick={() => navigate("/about")}
-            whileHover={{ scale: 1.1}}
-            whileTap={{ scale: 0.9 }}
-    
-
-
+            <motion.span
+              className="underline text-white cursor-pointer animate-bounce"
+              //change route using react router dom
+              onClick={() => navigate("/about")}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
             >
               About
             </motion.span>
+            <QRPopup />
           </motion.p>
         </motion.div>
       </motion.div>
@@ -597,3 +636,41 @@ const GameLauncher = () => {
 };
 
 export default GameLauncher;
+
+const QRPopup = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  return (
+    <div className="flex flex-col items-center justify-center ">
+      <span
+        onClick={() => setShowPopup(true)}
+        className="px-4 py-2  text-white rounded border-gradient-to-r from-blue-400 to-purple-600 cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-700 transition duration-300 ease-in-out"
+      >
+        Show QR Code
+      </span>
+
+      {showPopup && (
+        <div className=" absolute top-0 lef flex items-center justify-center z-50  ">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-lg font-semibold mb-4 text-blue-500">
+              Scan Me 📱
+            </h2>
+            <QRCode
+              value="https://hevar-games.vercel.app/"
+              size={256}
+              bgColor="#ffffff"
+              fgColor="#000000"
+              level="H"
+            />
+            <button
+              onClick={() => setShowPopup(false)}
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
