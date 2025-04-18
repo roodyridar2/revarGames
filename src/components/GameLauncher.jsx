@@ -122,7 +122,7 @@ const GAMES = [
     id: "QAgame",
     title: "QA Game",
     path: "/QAgame",
-    description: "three rocks and papers",
+    description: "Question and Answer game",
     color: "from-blue-400 to-blue-600",
     isPopular: false,
     isNew: false,
