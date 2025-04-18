@@ -28,12 +28,7 @@ const allQuestions = [
     options: ["دوکان", "دەربەندیخان", "وان", "ورمێ"],
     correctAnswer: "وان",
   }, // Lake Van
-  {
-    id: 4,
-    question: "ساڵی دامەزراندنی یەکێتیی نیشتمانیی کوردستان کەیە؟",
-    options: ["١٩٧٥", "١٩٤٦", "١٩٦١", "١٩٧٩"],
-    correctAnswer: "١٩٧٥",
-  }, // PUK founding year
+
   {
     id: 5,
     question: "کام شار بە 'شاری ڕۆشنبیری' ناسراوە لە باشووری کوردستان؟",
@@ -222,17 +217,7 @@ const allQuestions = [
     options: ["زاگرۆس", "ئەلبروز", "هیمالایا", "ئەڵپ"],
     correctAnswer: "زاگرۆس",
   }, // Zagros Mountains
-  {
-    id: 30,
-    question: "کام نووسەر و سیاسەتمەداری کورد ناسراوە بە 'مام جەلال'؟",
-    options: [
-      "جەلال تاڵەبانی",
-      "نەوشیروان مستەفا",
-      "مەلا بەختیار",
-      "عومەر فەتاح",
-    ],
-    correctAnswer: "جەلال تاڵەبانی",
-  }, // Jalal Talabani (Mam Jalal)
+// Jalal Talabani (Mam Jalal)
   {
     id: 31,
     question: "'شەرەفنامە' کە مێژووی کورد دەگێڕێتەوە، لەلایەن کێ نووسراوە؟",
@@ -267,12 +252,7 @@ const allQuestions = [
     ],
     correctAnswer: "مەلا محەمەد کوڕی مەلا عوسمانی باڵخی",
   }, // Mahwi's full name
-  {
-    id: 35,
-    question: "بزووتنەوەی گۆڕان لە چ ساڵێکدا دامەزرا؟",
-    options: ["٢٠٠٩", "٢٠٠٥", "٢٠٠٣", "٢٠١٣"],
-    correctAnswer: "٢٠٠٩",
-  }, // Gorran Movement founding year
+
   {
     id: 36,
     question: "کام یەک لەمانە زاراوەیەکی سەرەکی زمانی کوردی نییە؟",
@@ -313,12 +293,7 @@ const allQuestions = [
     ],
     correctAnswer: "یەڵماز گونەی",
   }, // Yılmaz Güney (for Yol)
-  {
-    id: 40,
-    question: "شاری 'سنە' ناوەندی کام پارێزگای ئێرانە؟",
-    options: ["کوردستان", "کرماشان", "ئازەربایجانی ڕۆژئاوا", "ئیلام"],
-    correctAnswer: "کوردستان",
-  }, // Sanandaj (capital of Kurdistan Province, Iran)
+
   {
     id: 41,
     question: "'هەژار' نازناوی کام نووسەر و وەرگێڕی کورد بوو؟",
@@ -330,24 +305,14 @@ const allQuestions = [
     ],
     correctAnswer: "عەبدولڕەحمان شەرەفکەندی",
   }, // Hejar (Abdurrahman Sharafkandi)
-  {
-    id: 42,
-    question: "کام ڕووبار بە 'زێی گەورە' ناسراوە؟",
-    options: ["زاب", "خابوور", "دیالە", "فورات"],
-    correctAnswer: "زاب",
-  }, // Great Zab River
+
   {
     id: 43,
     question: "شاڵاوی ئەنفال لەلایەن ڕژێمی بەعسەوە لە چ ساڵانێکدا ئەنجامدرا؟",
     options: ["١٩٨٦-١٩٨٩", "١٩٨٠-١٩٨٨", "١٩٩٠-١٩٩١", "١٩٧٥-١٩٧٩"],
     correctAnswer: "١٩٨٦-١٩٨٩",
   }, // Anfal Campaign years (primarily 1988)
-  {
-    id: 44,
-    question: "کام شار بە 'ئامێدی' ناسراوە و مێژوویەکی کۆنی هەیە؟",
-    options: ["ئامێدی", "زاخۆ", "دهۆک", "شیلادزێ"],
-    correctAnswer: "ئامێدی",
-  }, // Amedi city
+
   {
     id: 45,
     question: "یەکەمین حکومەتی کوردی لە باشووری کوردستان لەلایەن کێوە دامەزرا؟",
@@ -359,29 +324,14 @@ const allQuestions = [
     ],
     correctAnswer: "شێخ مەحموودی حەفید",
   }, // Sheikh Mahmud Barzanji (Kingdom of Kurdistan)
-  {
-    id: 46,
-    question: "کام هونەرمەندی گۆرانیبێژ بە 'حەسەن زیرەک' ناسراوە؟",
-    options: ["حەسەن زیرەک", "محەمەد ماملێ", "عەلی مەردان", "تاهیر تۆفیق"],
-    correctAnswer: "حەسەن زیرەک",
-  }, // Hassan Zirak
+
   {
     id: 47,
     question: "گەورەترین ئایین لە نێو کورددا کامەیە؟",
     options: ["ئیسلام (سوننە)", "ئێزیدی", "یارسان (کاکەیی)", "شیعە"],
     correctAnswer: "ئیسلام (سوننە)",
   }, // Islam (Sunni) is the majority religion
-  {
-    id: 48,
-    question: "ناوی پەرلەمانی هەرێمی کوردستان چیە؟",
-    options: [
-      "پەرلەمانی کوردستان",
-      "ئەنجومەنی نیشتمانیی کوردستان",
-      "ئەنجومەنی وەزیران",
-      "مەجلیسی شورا",
-    ],
-    correctAnswer: "پەرلەمانی کوردستان",
-  }, // Kurdistan Parliament
+
   {
     id: 49,
     question:
@@ -389,12 +339,7 @@ const allQuestions = [
     options: ["قەندیل", "هەڵگورد", "پیرەمەگروون", "سەفین"],
     correctAnswer: "قەندیل",
   }, // Mount Qandil
-  {
-    id: 50,
-    question: "کام شاعیر بە 'حاجی قادری کۆیی' ناسراوە؟",
-    options: ["حاجی قادری کۆیی", "نالی", "مەولەوی", "کوردی"],
-    correctAnswer: "حاجی قادری کۆیی",
-  }, // Haji Qadir Koyi
+
   {
     id: 51,
     question: "ناوی کۆنی شاری هەولێر چی بووە؟",
@@ -472,13 +417,7 @@ const allQuestions = [
     ],
     correctAnswer: "نزیکەی ٢٥-٣٢ مەتر",
   }, // Erbil Citadel height
-  {
-    id: 63,
-    question:
-      "کام ڕێکخراوی سیاسی کوردستانی لە باکووری کوردستان چالاکە و نوێنەری لە پەرلەمانی تورکیا هەیە؟",
-    options: ["HDP (هەدەپە)", "PKK (پەکەکە)", "KDP (پەدەکە)", "YNK (یەنەکە)"],
-    correctAnswer: "HDP (هەدەپە)",
-  }, // HDP (Peoples' Democratic Party)
+
   {
     id: 64,
     question:
@@ -510,12 +449,7 @@ const allQuestions = [
     ],
     correctAnswer: "ڕۆژهەڵاتی کوردستان (ئێران) / ڕووباری دیجلە",
   }, // Sirwan River (becomes Diyala in Iraq, flows into Tigris)
-  {
-    id: 68,
-    question: "کام شاعیری هاوچەرخی کورد بە 'شێرکۆ بێکەس' ناسراوە؟",
-    options: ["شێرکۆ بێکەس", "عەبدوڵڵا پەشێو", "لەتیف هەڵمەت", "ڕەفیق سابیر"],
-    correctAnswer: "شێرکۆ بێکەس",
-  }, // Sherko Bekas
+
   {
     id: 69,
     question: "میرنشینی بابان لە کام ناوچەی کوردستان بوو؟",
@@ -634,17 +568,7 @@ const allQuestions = [
     ],
     correctAnswer: "مەستوورە ئەردەڵان",
   }, // Mastura Ardalan (wrote history, also a poet)
-  {
-    id: 82,
-    question: "کام پارتی سیاسی کوردستانی لە ڕۆژهەڵاتی کوردستان (ئێران) چالاکە؟",
-    options: [
-      "حیزبی دیموکراتی کوردستانی ئێران (حدکا)",
-      "یەکێتی نیشتمانی کوردستان (YNK)",
-      "پارتی کرێکارانی کوردستان (PKK)",
-      "پارتی دیموکراتی گەلان (HDP)",
-    ],
-    correctAnswer: "حیزبی دیموکراتی کوردستانی ئێران (حدکا)",
-  }, // KDPI
+
   {
     id: 83,
     question: "شاری 'وان' دەکەوێتە کەناری کام دەریاچە؟",
@@ -674,24 +598,8 @@ const allQuestions = [
     ],
     correctAnswer: "چیای برادۆست (هەرێمی کوردستان)",
   }, // Shanidar Cave location
-  {
-    id: 86,
-    question:
-      "کام هونەرمەند بە 'تایەر تۆفیق' ناسراوە و یەکێکە لە پایەکانی گۆرانی کوردی؟",
-    options: ["تایەر تۆفیق", "عەلی مەردان", "ڕەسووڵ گەردی", "حەمە ساڵح دیلان"],
-    correctAnswer: "تایەر تۆفیق",
-  }, // Tayar Tofiq
-  {
-    id: 87,
-    question: "کام شارەزوورە دەکەوێتە نێوان سلێمانی و هەڵەبجە؟",
-    options: [
-      "دەشتی شارەزوور",
-      "دەشتی بیتوێن",
-      "دەشتی هەولێر",
-      "دەشتی کەندێناوە",
-    ],
-    correctAnswer: "دەشتی شارەزوور",
-  }, // Shahrizor Plain
+
+
   {
     id: 88,
     question: "کام شاعیر و نووسەری کورد ناسراوە بە 'فەقێی تەیرا'؟",
@@ -716,17 +624,7 @@ const allQuestions = [
     options: ["سەوز", "سوور", "سپی", "زەرد"],
     correctAnswer: "سەوز",
   }, // Green color in Kurdish flag
-  {
-    id: 92,
-    question: "کام هونەرمەندی موزیسیان و گۆرانیبێژ بە 'عەلی مەردان' ناسراوە؟",
-    options: [
-      "عەلی مەردان",
-      "کەریم کابان",
-      "محەمەد عارەف جزیری",
-      "حەسەن گەرمیانی",
-    ],
-    correctAnswer: "عەلی مەردان",
-  }, // Ali Mardan
+
   {
     id: 93,
     question: "دەریاچەی 'زرێبار' دەکەوێتە نزیک کام شاری ڕۆژهەڵاتی کوردستان؟",
