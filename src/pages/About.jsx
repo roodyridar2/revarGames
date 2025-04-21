@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import profileImage from "../assets/img/about.png";
+import insta from "../assets/img/insta.jpg";
 
 // Flying Ball component
-const FlyingBall = ({dur}) => {
+const FlyingBall = ({ dur }) => {
   return (
     <motion.div
       className="flying-ball"
@@ -43,7 +44,7 @@ const FlyingBall = ({dur}) => {
 };
 
 // Secondary Flying Ball with different animation path
-const SecondaryFlyingBall = ({dur}) => {
+const SecondaryFlyingBall = ({ dur }) => {
   return (
     <motion.div
       className="flying-ball-secondary"
@@ -190,43 +191,30 @@ Finally, I hope this platform inspires fun and participation, bringing people to
   };
 
   return (
-<motion.div
-    className="fixed w-screen h-screen inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900 text-white overflow-auto"
-    initial="hidden"
-    animate="visible"
-    variants={containerVariants}
-    style={{
-      fontFamily: isKurdish
-        ? '"Rabar_013", Arial, sans-serif'
-        : '"Roboto", Arial, sans-serif',
-      direction: isKurdish ? "rtl" : "ltr",
-      margin: 0,
-      padding: "2rem",
-      position: "relative",
-    }}
-  >
+    <motion.div
+      className="fixed w-screen h-screen inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900 text-white overflow-auto"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      style={{
+        fontFamily: isKurdish
+          ? '"Rabar_013", Arial, sans-serif'
+          : '"Roboto", Arial, sans-serif',
+        direction: isKurdish ? "rtl" : "ltr",
+        margin: 0,
+        padding: "2rem",
+        position: "relative",
+      }}
+    >
       {/* Add gradient background */}
       <GradientBackground />
 
       {/* Add flying balls */}
-      <FlyingBall 
-
-        dur={15}
-      />
-      <FlyingBall 
-
-        dur={10}
-      />
-      <SecondaryFlyingBall 
-
-        dur={12}
-      />
-      <SecondaryFlyingBall
-      dur={8}
-       />
-      <SecondaryFlyingBall
-      dur={6}
-       />
+      <FlyingBall dur={15} />
+      <FlyingBall dur={10} />
+      <SecondaryFlyingBall dur={12} />
+      <SecondaryFlyingBall dur={8} />
+      <SecondaryFlyingBall dur={6} />
 
       <motion.div
         className=" "
@@ -328,12 +316,12 @@ Finally, I hope this platform inspires fun and participation, bringing people to
             {/* Add glow effect around the image */}
             <motion.div
               className="image-glow"
-              animate={{ 
+              animate={{
                 boxShadow: [
                   "0 0 15px rgba(52, 152, 219, 0.3)",
                   "0 0 25px rgba(52, 152, 219, 0.5)",
-                  "0 0 15px rgba(52, 152, 219, 0.3)"
-                ]
+                  "0 0 15px rgba(52, 152, 219, 0.3)",
+                ],
               }}
               transition={{ duration: 2, repeat: Infinity }}
               style={{
@@ -359,8 +347,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
           }}
         >
           <motion.h1
-          className=" p-2 text-white font-bold  text-center"
-
+            className=" p-2 text-white font-bold  text-center"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -375,8 +362,7 @@ Finally, I hope this platform inspires fun and participation, bringing people to
           </motion.h1>
 
           <motion.div
-
-          className=" p-2  text-white font-bold  "
+            className=" p-2  text-white font-bold  "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.7 }}
@@ -414,6 +400,16 @@ const AnimatedAboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <AboutPage onLanguageChange={handleLanguageChange} />
+
+      <div className="fixed bottom-0 left-0 right-0 p-4 flex justify-center items-center gap-2 scale-125 rounded-md">
+        <div
+          style={{
+            background: `url(${insta}) no-repeat center center / contain`,
+            width: "100px",
+            height: "100px",
+          }}
+        />
+      </div>
     </motion.div>
   );
 };

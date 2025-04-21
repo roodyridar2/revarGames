@@ -9,7 +9,7 @@ const Hangmman = () => {
 
   if (language === null) {
     return (
-      <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-4 font-sans">
+      <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-blue-600 via-blue-900 to-gray-900 text-white p-4 font-sans">
         <LanguageSelector onSelectLanguage={setLanguage} />
       </div>
     );
@@ -471,7 +471,7 @@ const KurdishHangman = ({ onLeave }) => {
 
   return (
     <div
-      className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-4 font-sans"
+      className="flex flex-col items-center min-h-screen bg-gradient-to-br from-blue-600 via-blue-900 to-gray-900 text-white p-4 font-sans"
       dir="rtl"
     >
       <motion.div
@@ -1317,7 +1317,7 @@ const EnglishHangman = ({ onLeave }) => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 via-indigo-950 to-gray-900 text-white p-4 font-sans">
+    <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-blue-600 via-blue-900 to-gray-900 text-white p-4 font-sans">
       <motion.div
         className="w-full max-w-4xl mx-auto"
         initial={{ opacity: 0 }}

@@ -381,6 +381,10 @@ const GameLauncher = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+    <FlyingBall dur={10} />
+    <FlyingBall dur={15} />
+    <FlyingBall dur={20} />
+    <FlyingBall dur={25} />
       {/* Animated background gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900"
@@ -625,7 +629,7 @@ const GameLauncher = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              About
+              About (دەربارە)
             </motion.span>
             <QRPopup />
           </motion.p>
@@ -672,5 +676,45 @@ const QRPopup = () => {
         </div>
       )}
     </div>
+  );
+};
+
+
+// Secondary Flying Ball with different animation path
+const FlyingBall = ({dur}) => {
+  return (
+    <motion.div
+      className="flying-ball"
+      initial={{
+        x: -100,
+        y: -100,
+        opacity: 0,
+        scale: 0,
+      }}
+      animate={{
+        x: [0, 200, 0, -200, 0],
+        y: [0, -200, 100, 100, 0],
+        opacity: [0, 0.8, 0.5, 0.8, 0.5],
+        scale: [0, 1.5, 1, 1.5, 1],
+      }}
+      transition={{
+        duration: dur,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      }}
+      style={{
+        width: "40px",
+        height: "40px",
+        borderRadius: "50%",
+        background: "linear-gradient(45deg, #3498db, #1abc9c)",
+        position: "absolute",
+        top: "20%",
+        left: "20%",
+        zIndex: 1,
+        filter: "blur(2px)",
+        boxShadow: "0 0 20px rgba(52, 152, 219, 0.5)",
+      }}
+    />
   );
 };
