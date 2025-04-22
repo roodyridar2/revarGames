@@ -56,7 +56,7 @@ const AppRoutes = () => {
     {
       path: "/QAgame",
       element: (
-        <GameWrapper gameName="Three Rocks and Papers">
+        <GameWrapper gameName="Q&A Game">
           <QAGame />
         </GameWrapper>
       ),

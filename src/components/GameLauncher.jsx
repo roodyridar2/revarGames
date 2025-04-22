@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
+import { FaInstagram } from "react-icons/fa";
+import { FaQrcode } from "react-icons/fa6";
 
 // Game data array with enhanced colors and icons
 const GAMES = [
@@ -381,10 +383,10 @@ const GameLauncher = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-    <FlyingBall dur={10} />
-    <FlyingBall dur={15} />
-    <FlyingBall dur={20} />
-    <FlyingBall dur={25} />
+      <FlyingBall dur={10} />
+      <FlyingBall dur={15} />
+      <FlyingBall dur={20} />
+      <FlyingBall dur={25} />
       {/* Animated background gradient */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-b from-blue-700 via-purple-800 to-purple-900"
@@ -631,7 +633,18 @@ const GameLauncher = () => {
             >
               About (دەربارە)
             </motion.span>
-            <QRPopup />
+            <div
+            className="flex  items-center justify-center mt-4 gap-20"
+            >
+              <QRPopup />
+              <div className="text-sm text-white flex items-center justify-center mt-2 ">
+                <FaInstagram
+                  className="inline-block text-white mr-1"
+                  size={20}
+                />
+                hevar.h.sarhan
+              </div>
+            </div>
           </motion.p>
         </motion.div>
       </motion.div>
@@ -641,47 +654,10 @@ const GameLauncher = () => {
 
 export default GameLauncher;
 
-const QRPopup = () => {
-  const [showPopup, setShowPopup] = useState(false);
-
-  return (
-    <div className="flex flex-col items-center justify-center ">
-      <span
-        onClick={() => setShowPopup(true)}
-        className="px-4 py-2  text-white rounded border-gradient-to-r from-blue-400 to-purple-600 cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-700 transition duration-300 ease-in-out"
-      >
-        Show QR Code
-      </span>
-
-      {showPopup && (
-        <div className=" absolute top-0 lef flex items-center justify-center z-50  ">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-lg font-semibold mb-4 text-blue-500">
-              Scan Me 📱
-            </h2>
-            <QRCode
-              value="https://hevar-games.vercel.app/"
-              size={256}
-              bgColor="#ffffff"
-              fgColor="#000000"
-              level="H"
-            />
-            <button
-              onClick={() => setShowPopup(false)}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 
 // Secondary Flying Ball with different animation path
-const FlyingBall = ({dur}) => {
+const FlyingBall = ({ dur }) => {
   return (
     <motion.div
       className="flying-ball"
@@ -718,3 +694,67 @@ const FlyingBall = ({dur}) => {
     />
   );
 };
+
+
+import { useEffect } from "react";
+
+const QRPopup = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  // close on ESC
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && setIsOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  return (
+    <div className="flex items-center justify-center">
+      <button
+        onClick={() => setIsOpen(true)}
+        aria-label="Open QR Code"
+        className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-700 transition duration-300 ease-in-out"
+      >
+        <FaQrcode className="mr-2" size={20} />
+        QR Code
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          // overlay
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 rounded-xl bg-opacity-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* popup panel */}
+            <motion.div
+              className="bg-white p-6 rounded-2xl shadow-xl max-w-sm mx-4 text-center"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            >
+              <h2 className="text-2xl font-semibold mb-4 text-blue-600">
+                Scan Me 📱
+              </h2>
+              <QRCode
+                value="https://hevar-games.vercel.app/"
+                size={200}
+                level="H"
+              />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="mt-6 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+              >
+                Close
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+

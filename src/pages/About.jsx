@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import profileImage from "../assets/img/about.png";
-import insta from "../assets/img/insta.jpg";
 
 // Flying Ball component
 const FlyingBall = ({ dur }) => {
@@ -119,7 +118,7 @@ const AboutPage = ({ onLanguageChange }) => {
   // Profile data for both languages
   const profileData = {
     kurdish: {
-      title: "about",
+      title: "(دەربارە)about",
       content: `دروستکردنی ئەم ماڵپەڕی پۆرتاڵییە بۆ یارییەکان گەشتێکی سەرنجڕاکێشە، ئامانج لەم پڕۆژەیە دابینکردنی کەشێکی زیندوی چێژ بەخشەکە یاریزانەکان لە هەرتەمەنێک دابن بتوانن چێژوەرگرن لە کۆمەڵێک یاری جۆراوجۆر.
 
 من بە وردی هەڵبژاردنێکم کۆکردەوە کە جێگەی ئارەزوو و ئاستی لێهاتوویی جۆراوجۆر بێت، دڵنیا بووم لەوەی هەموو کەسێک بتوانێت کاتی خۆش پێکەوە بەسەر ببەن. ئەم پۆرتاڵە چەند یارییەک لە خۆ دەگرێت ؛ ناوەندێکە بۆ بەسەربردن و دۆزینەوەی ئامانجی یاریەکە 
@@ -402,13 +401,7 @@ const AnimatedAboutPage = () => {
       <AboutPage onLanguageChange={handleLanguageChange} />
 
       <div className="fixed bottom-0 left-0 right-0 p-4 flex justify-center items-center gap-2 scale-125 rounded-md">
-        <div
-          style={{
-            background: `url(${insta}) no-repeat center center / contain`,
-            width: "100px",
-            height: "100px",
-          }}
-        />
+       
       </div>
     </motion.div>
   );
